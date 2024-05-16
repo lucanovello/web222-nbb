@@ -138,7 +138,16 @@ function greeting(name) {
  ******************************************************************************/
 
 function toCamelCase(name, uppercase) {
-  // Replace this comment with your code...
+  const nameArr = name.split('-');
+  for (let i = 1; i < nameArr.length; i++) {
+    // Capitalize the first letter and lowercase the rest
+    nameArr[i] = nameArr[i].charAt(0).toUpperCase() + nameArr[i].slice(1).toLowerCase();
+  }
+  // Join the names back into a single string
+  let newName = nameArr.join('');
+  // If uppercase is true, capitalize the first letter of newName
+  uppercase && (newName = newName.charAt(0).toUpperCase() + newName.slice(1));
+  return newName;
 }
 
 /*******************************************************************************
