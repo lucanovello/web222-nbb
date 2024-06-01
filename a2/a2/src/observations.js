@@ -129,9 +129,10 @@ function speciesCoordinates2(data) {
  ******************************************************************************/
 function speciesCoordinates3(data) {
   for (const result in data.results) {
-    console.log(result.location);
-    const formattedLocation = result.location.split(',').join(', ');
-    console.log(`"${result.species_guess}" observed at coordinates (${formattedLocation})`);
+    const formattedLocation = data.results[result].location.split(',').join(', ');
+    console.log(
+      `"${data.results[result].species_guess}" observed at coordinates (${formattedLocation})`
+    );
   }
 }
 
@@ -173,7 +174,22 @@ function speciesCoordinates3(data) {
  * Your function should return the newly created Array.
  ******************************************************************************/
 function observationsByQualityGrade(data, qualityGrade) {
-  // TODO
+  const qualityGradeLower = qualityGrade.toLower();
+  if (
+    qualityGradeLower !== 'research' ||
+    qualityGradeLower !== 'needs_id' ||
+    qualityGradeLower !== 'casual' ||
+    qualityGradeLower !== null
+  ) {
+    throw new Error('Please enter a valid quality grade');
+  }
+  const results = [];
+
+  for (let i = 0; i < data.results.length; i++) {
+    const result = data.results[i];
+    result.quality_grade === qualityGradeLower && results.push(result);
+  }
+  return results;
 }
 
 /*******************************************************************************
@@ -196,7 +212,28 @@ function observationsByQualityGrade(data, qualityGrade) {
  * from above (i.e., don't rewrite the same logic again).
  ******************************************************************************/
 function observationsByQualityGrades(data, ...qualityGrades) {
-  // TODO
+  if (qualityGrades.length < 1) {
+    throw new Error('Please enter a valid quality grade');
+  } else {
+    const qualitiesArr = [];
+    const resultArr = [];
+    for (const qualityGrade of qualityGrades) {
+      const quality = qualityGrades[qualityGrade].toLower();
+      if (
+        quality === 'research' ||
+        quality === 'needs_id' ||
+        quality === 'casual' ||
+        quality === null
+      )
+        qualitiesArr.push(qualityGrades[qualityGrade]);
+    }
+
+    for (let i = 0; i < data.results.length; i++) {
+      const result = data.results[i];
+      result.quality_grade === qualitiesArr[0] && resultArr.push(result);
+    }
+    return resultArr;
+  }
 }
 
 /*******************************************************************************
