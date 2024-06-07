@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <style>
+      /* FONTS **************************************************/
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      /* font-family: "Poppins", sans-serif; */
+      @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&display=swap");
+      /* font-family: "Catamaran", sans-serif; */
+
+      /* VARIABLES **************************************************/
+      :root {
+        --color-bg1: hsl(355, 90%, 40%);
+        --color-bg2: hsl(355, 95%, 25%);
+        --color-shadow: hsla(0, 0%, 0%, 0.6);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        width: 100%;
+        min-width: 200px;
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        font-family: "Catamaran", sans-serif;
+        letter-spacing: -0.01em;
+        background: url(https://mario.nintendo.com/static/pattern-logos-characters-bd1f26898b2027c98ce8ba17c084f523.png),
+          linear-gradient(to bottom, var(--color-bg1) 15%, var(--color-bg2) 75%);
+        color: white;
+        text-shadow: 0 2px 4px var(--color-shadow);
+      }
+
+      .main-container {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* NAV **************************************************/
+      .nav-container {
+        width: 100%;
+        height: 6vh;
+        min-height: 50px;
+        max-height: 70px;
+        padding: 0 15%;
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px dashed white;
+        background: hsla(355, 95%, 45%, 0.3);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        text-shadow: 0 1px 2px var(--color-shadow);
+        box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.4);
+        z-index: 99;
+      }
+      /* logo */
+      .logo-wrapper {
+        width: 15%;
+        min-width: 180px;
+        height: 70%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        text-decoration: none;
+        object-fit: contain;
+        cursor: pointer;
+        transition: 0.1s linear, about-shadow 0.01s linear,
+          box-shadow 0.1s linear;
+      }
+      .logo-wrapper:hover {
+        transform: translateY(-2px);
+        text-shadow: 0 3px 3px var(--color-shadow);
+      }
+      .logo-img-wrapper {
+        aspect-ratio: 1 / 1;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border-radius: 50%;
+        box-shadow: 0 1px 3px var(--color-shadow);
+        transition: 0.1s linear, about-shadow 0.01s linear,
+          box-shadow 0.1s linear;
+      }
+      .logo-wrapper:hover .logo-img-wrapper {
+        box-shadow: 0 3px 3px var(--color-shadow);
+      }
+      .logo-img {
+        aspect-ratio: 1 / 1;
+        height: 110%;
+        position: absolute;
+        transition: 0.1s linear, about-shadow 0.01s linear,
+          box-shadow 0.1s linear;
+      }
+      /* name */
+      .logo-name {
+        margin-left: 5px;
+        font-size: 25px;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: hsl(0, 0%, 100%);
+        white-space: nowrap;
+        cursor: pointer;
+        transition: 0.1s linear, about-shadow 0.01s linear,
+          box-shadow 0.1s linear;
+      }
+      /* nav menu */
+      .nav-menu-list {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        list-style: none;
+      }
+      .nav-menu-list-item {
+        width: calc(10ch + 12%);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 2px dashed transparent;
+        cursor: pointer;
+        transition: 0.3s ease, border 0.1s ease-in;
+      }
+      .nav-menu-list-item-link {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: hsla(0, 0%, 100%, 0.9);
+        text-shadow: 0 1px 3px var(--color-shadow);
+        transform: translateY(0px);
+        transition: 0.1s linear, about-shadow 0.01s linear,
+          box-shadow 0.1s linear;
+      }
+      .nav-menu-list-item:hover .nav-menu-list-item-link {
+        color: hsl(0, 0%, 100%);
+        transform: translateY(-2px);
+        text-shadow: 0 3px 3px var(--color-shadow);
+      }
+      .nav-menu-list-item:hover {
+        background: hsla(0, 0%, 0%, 0.15);
+        border-right: 2px dashed white;
+        border-left: 2px dashed white;
+      }
+      /* HERO SECTION **************************************************/
+      .hero-container {
+        width: 100%;
+        padding: 15vh 10%;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 5%;
+      }
+      .hero-img-wrapper {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      .hero-img {
+        width: 100%;
+        min-width: 250px;
+        max-width: 320px;
+        filter: drop-shadow(0px 5px 3px hsla(0, 0%, 0%, 0.3));
+      }
+      .hero-text-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        row-gap: 6vh;
+      }
+      .hero-text-wrapper {
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 10%;
+      }
+
+      /* TITLE **************************************************/
+      .title-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        line-height: 2;
+      }
+      .title-text {
+        font-size: calc(1rem + 1vw);
+        font-weight: 400;
+        text-transform: capitalize;
+        transform: translateX(0.5ch);
+      }
+      .title-text-name-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        line-height: 0.77;
+      }
+      .title-text-name1 {
+        font-size: calc(3rem + 2vw);
+        font-weight: 800;
+        text-align: left;
+        text-transform: capitalize;
+        letter-spacing: -0.03em;
+        transform: translateX(0.09em);
+      }
+      .title-text-name2 {
+        margin-bottom: -2px;
+        font-size: calc(5.2rem + 2vw);
+        font-weight: 900;
+        text-transform: capitalize;
+        letter-spacing: -0.01em;
+      }
+      /* SECTIONS **************************************************/
+      .about-container {
+        width: 100%;
+        padding: 0 10% 10vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 10%;
+      }
+      /* img */
+      .about-img-wrapper {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .about-img {
+        width: 33vw;
+        min-width: 150px;
+        max-width: 300px;
+        filter: drop-shadow(0px -1px 3px hsla(0, 0%, 0%, 0.3));
+      }
+      /* paragraphs */
+      .about-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .about-p {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .hero-title,
+      .about-title {
+        font-size: 2rem;
+        font-weight: 900;
+      }
+      .about-p-span {
+        margin-bottom: 1em;
+        display: flex;
+        font-size: 1.1rem;
+        font-weight: 400;
+        line-height: 1.3em;
+      }
+      .section-shape {
+        width: 100%;
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        fill: var(--color-bg1);
+        filter: drop-shadow(0 -5px 15px hsla(0, 10%, 10%, 0.2));
+        fill: var(--color-bg1);
+        z-index: -1;
+      }
+      /* GAMES ******************************************************/
+      .games-container {
+        width: 100%;
+        padding: 5vh 10% 0;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        background: linear-gradient(var(--color-bg1), var(--color-bg2));
+      }
+      .games-title {
+        width: 100%;
+        margin-bottom: 7vh;
+        font-size: calc(2rem + 1vw);
+        font-weight: 900;
+        line-height: 0.95;
+        text-align: center;
+        text-transform: capitalize;
+        letter-spacing: -0.03em;
+      }
+
+      .games-lists-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        column-gap: 50px;
+        row-gap: 10vh;
+        z-index: 9;
+      }
+
+      .games-lists-wrapper {
+        width: 30%;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        row-gap: 4vh;
+      }
+      .games-lists-title {
+        width: 100%;
+        margin-bottom: 1vh;
+        font-size: calc(2rem + 0.2vw);
+        font-weight: 800;
+        line-height: 1;
+        color: hsl(0, 0%, 100%);
+      }
+
+      .games-lists {
+        width: 100%;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .games-lists > li > a {
+        font-size: calc(14px + 0.2vw);
+        text-decoration: none;
+        color: hsla(0, 0%, 100%, 0.8);
+        cursor: pointer;
+        transition: 0.1s ease-out;
+      }
+      .games-lists > li > a:focus,
+      .games-lists > li > a:hover {
+        color: white;
+        transform: translateY(-2px);
+        text-shadow: 0 3px 2px var(--color-shadow);
+      }
+
+      /* FOOTER ********************************************************************/
+      .footer {
+        width: 100%;
+        padding: 3vh 0 1.5vh;
+        margin-top: 12vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 14px;
+        line-height: 1;
+        color: white;
+      }
+      .footer-shape {
+        width: 100%;
+        min-width: 1500px;
+        justify-self: center;
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        fill: var(--color-bg1);
+        filter: drop-shadow(0 -5px 15px hsla(0, 10%, 10%, 0.2));
+      }
+      .footer-text {
+        width: 100%;
+        color: white;
+        text-align: center;
+        z-index: 9;
+      }
+      .footer-text > a {
+        color: hsla(0, 0%, 100%, 0.7);
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+      .footer-text > a:hover {
+        color: hsl(0, 0%, 100%);
+      }
+      .copyright {
+        width: 100%;
+        margin-top: 1vh;
+        color: white;
+      }
+
+      @media (max-width: 600px) {
+        .nav-main-container {
+          padding: 0 5%;
+        }
+        .hero-container {
+          padding-bottom: 1vh;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+        }
+        .hero-img-wrapper {
+          display: none;
+        }
+        .hero-title {
+          width: 100%;
+        }
+        .about-container {
+          flex-direction: column-reverse;
+          padding-bottom: 0;
+          text-align: center;
+        }
+        .about-title {
+          width: 100%;
+        }
+        .about-img {
+          margin-bottom: 3vh;
+        }
+        .games-container {
+          padding: 5vh 5% 0;
+        }
+        .games-lists-container {
+          row-gap: 4vh;
+        }
+        .games-lists-wrapper {
+          margin: 0;
+        }
+      }
+
+      @media (max-width: 450px) {
+        .nav-container {
+          justify-content: center;
+        }
+        .nav-menu-list {
+          display: none;
+        }
+      }
+    </style>
+    <title>Super Mario | Assignment 2 | Luca Novello</title>
+  </head>
+  <body>
+    <main class="main-container" id="home">
+      <!-- NAVIGATION MENU -->
+      <nav class="nav-container">
+        <a class="logo-wrapper" href="#home">
+          <div class="logo-img-wrapper">
+            <img
+              class="logo-img"
+              src="https://mario.wiki.gallery/images/0/01/MKT_174CB.png"
+              alt="Super Mario logo"
+            />
+          </div>
+          <p class="logo-name">Super Mario</p>
+        </a>
+        <ul class="nav-menu-list">
+          <li class="nav-menu-list-item">
+            <a class="nav-menu-list-item-link" href="#about">About</a>
+          </li>
+          <li class="nav-menu-list-item">
+            <a class="nav-menu-list-item-link" href="#games">Games</a>
+          </li>
+          <li class="nav-menu-list-item">
+            <a class="nav-menu-list-item-link" href="#resources">Resources</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="hero-container">
+        <div class="hero-img-wrapper">
+          <img
+            class="hero-img"
+            src="https://mario.nintendo.com/static/f350c31adcd6378b913f7660db299714/f0970/mario.png"
+            alt="Super Mario"
+          />
+        </div>
+        <div class="hero-text-container">
+          <!-- TITLE -->
+          <div class="title-container" id="about">
+            <p class="title-text" id="about">Welcome to</p>
+            <div class="title-text-name-wrapper">
+              <!-- your selected character’s name (use an <h1>), -->
+              <p class="title-text-name1">Super</p>
+              <h1 class="title-text-name2">Mario's</h1>
+              <p class="title-text-name1">World</p>
+            </div>
+            <p class="title-text" id="about"></p>
+          </div>
+
+          <!-- SECTION 1 -->
+          <section class="hero-text-wrapper">
+            <div class="about-wrapper">
+              <h2 class="hero-title">How It All Began...</h2>
+              <p class="hero-subtitle">
+                (from the original instruction booklet)
+              </p>
+              <p class="about-p">
+                <span class="about-p-span">
+                  One day, the kingdom of the peaceful Mushroom People was
+                  invaded by the Koopa, a tribe of turtles famous for their
+                  black magic. The quiet, peace-loving Mushroom People were
+                  turned into mere stones, bricks, and even field horsehair
+                  plants, and the Mushroom Kingdom fell into ruin.
+                </span>
+                <span class="about-p-span">
+                  The only one who can undo the magic spell on the Mushroom
+                  People and return them to their normal selves is Princess
+                  Toadstool, the daughter of the Mushroom King. Unfortunately,
+                  she is presently in the hands of Bowser, the King of the
+                  Koopa.
+                </span>
+                <span class="about-p-span">
+                  Mario hears about the Mushroom People's plight and sets out on
+                  a quest to free Princess Toadstool from the evil Koopa and
+                  restore the fallen kingdom of the Mushroom People.
+                </span>
+                <span class="about-p-span">
+                  You are Mario! It's up to you to save the Mushroom People from
+                  the black magic of the Koopa!
+                </span>
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+      <!-- SECTION 2 -->
+      <section class="about-container">
+        <div class="about-wrapper">
+          <h2 class="about-title">A Cultural Icon</h2>
+          <p class="about-p">
+            <span class="about-p-span">
+              Super Mario, the iconic video game character created by Nintendo,
+              has had a profound impact on the world, transcending the
+              boundaries of gaming to become a cultural phenomenon. Since his
+              debut in 1981, Mario has not only defined the platformer genre but
+              also set a standard for game design and storytelling.
+            </span>
+            <span class="about-p-span">
+              His adventures have captivated millions, fostering creativity,
+              teamwork, and problem-solving skills among players of all ages.
+              Beyond entertainment, Super Mario has influenced various aspects
+              of popular culture, inspiring music, art, and even fashion.
+            </span>
+            <span class="about-p-span">
+              The enduring appeal of Mario highlights the timeless nature of his
+              world, where imagination and innovation continue to thrive,
+              bringing joy and a sense of nostalgia to generations worldwide.
+            </span>
+          </p>
+        </div>
+        <div class="about-img-wrapper">
+          <img
+            class="about-img"
+            src="https://seeklogo.com/images/S/Super_Mario_Bros_3-logo-8A4355206B-seeklogo.com.png"
+            alt="Super Mario"
+          />
+        </div>
+        <svg class="section-shape" viewBox="0 0 977 119">
+          <path d="M976.505 0V118.75H0.49469L976.505 0Z" />
+        </svg>
+      </section>
+      <!-- An list (ordered or unordered) containing the titles of the books / episodes / movies / games the character appears in. -->
+      <section class="games-container" id="games">
+        <h2 class="games-title">Games that Mario has appeared in:</h2>
+        <div class="games-lists-container">
+          <div class="games-lists-wrapper">
+            <ul class="games-lists">
+              <h3 class="games-lists-title">Main Series</h3>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Donkey_Kong_(video_game)"
+                  target="_blank"
+                  >Donkey Kong (1981)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Donkey_Kong_Jr."
+                  target="_blank"
+                  >Donkey Kong Jr. (1982)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Bros."
+                  target="_blank"
+                  >Mario Bros. (1983)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Bros."
+                  target="_blank"
+                  >Super Mario Bros. (1985)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Bros.:_The_Lost_Levels"
+                  target="_blank"
+                  >Super Mario Bros.: The Lost Levels (1986)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Bros._2"
+                  target="_blank"
+                  >Super Mario Bros. 2 (1988)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Bros._3"
+                  target="_blank"
+                  >Super Mario Bros. 3 (1988)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Land"
+                  target="_blank"
+                  >Super Mario Land (1989)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_World"
+                  target="_blank"
+                  >Super Mario World (1990)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Land_2:_6_Golden_Coins"
+                  target="_blank"
+                  >Super Mario Land 2: 6 Golden Coins (1992)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_64"
+                  target="_blank"
+                  >Super Mario 64 (1996)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Sunshine"
+                  target="_blank"
+                  >Super Mario Sunshine (2002)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/New_Super_Mario_Bros."
+                  target="_blank"
+                  >New Super Mario Bros. (2006)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Galaxy"
+                  target="_blank"
+                  >Super Mario Galaxy (2007)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/New_Super_Mario_Bros._Wii"
+                  target="_blank"
+                  >New Super Mario Bros. Wii (2009)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Galaxy_2"
+                  target="_blank"
+                  >Super Mario Galaxy 2 (2010)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_3D_Land"
+                  target="_blank"
+                  >Super Mario 3D Land (2011)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/New_Super_Mario_Bros._2"
+                  target="_blank"
+                  >New Super Mario Bros. 2 (2012)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/New_Super_Mario_Bros._U"
+                  target="_blank"
+                  >New Super Mario Bros. U (2012)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_3D_World"
+                  target="_blank"
+                  >Super Mario 3D World (2013)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Maker"
+                  target="_blank"
+                  >Super Mario Maker (2015)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Run"
+                  target="_blank"
+                  >Super Mario Run (2016)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Odyssey"
+                  target="_blank"
+                  >Super Mario Odyssey (2017)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Maker_2"
+                  target="_blank"
+                  >Super Mario Maker 2 (2019)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_3D_All-Stars"
+                  target="_blank"
+                  >Super Mario 3D All-Stars (2020)</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="games-lists-wrapper">
+            <ul class="games-lists">
+              <h3 class="games-lists-title">Mario Kart Racing</h3>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Kart"
+                  target="_blank"
+                  >Super Mario Kart (1992)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Kart_64"
+                  target="_blank"
+                  >Mario Kart 64 (1996)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Kart:_Super_Circuit"
+                  target="_blank"
+                  >Mario Kart: Super Circuit (2001)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Kart:_Double_Dash"
+                  target="_blank"
+                  >Mario Kart: Double Dash!! (2003)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Kart_DS"
+                  target="_blank"
+                  >Mario Kart DS (2005)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Kart_Wii"
+                  target="_blank"
+                  >Mario Kart Wii (2008)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Kart_7"
+                  target="_blank"
+                  >Mario Kart 7 (2011)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Kart_8"
+                  target="_blank"
+                  >Mario Kart 8 (2014)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Kart_8"
+                  target="_blank"
+                  >Mario Kart 8 Deluxe (2017)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Kart_Tour"
+                  target="_blank"
+                  >Mario Kart Tour (2019)</a
+                >
+              </li>
+            </ul>
+            <ul class="games-lists">
+              <h3 class="games-lists-title">Party Games</h3>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Party"
+                  target="_blank"
+                  >Mario Party (1998)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Party_2"
+                  target="_blank"
+                  >Mario Party 2 (1999)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Party_3"
+                  target="_blank"
+                  >Mario Party 3 (2000)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Party_4"
+                  target="_blank"
+                  >Mario Party 4 (2002)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Party_5"
+                  target="_blank"
+                  >Mario Party 5 (2003)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Party_6"
+                  target="_blank"
+                  >Mario Party 6 (2004)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Party_7"
+                  target="_blank"
+                  >Mario Party 7 (2005)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Party_8"
+                  target="_blank"
+                  >Mario Party 8 (2007)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Party_9"
+                  target="_blank"
+                  >Mario Party 9 (2012)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Party_10"
+                  target="_blank"
+                  >Mario Party 10 (2015)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_Party"
+                  target="_blank"
+                  >Super Mario Party (2018)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Party_Superstars"
+                  target="_blank"
+                  >Mario Party Superstars (2021)</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="games-lists-wrapper">
+            <ul class="games-lists">
+              <h3 class="games-lists-title">Mario Tennis</h3>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario%27s_Tennis"
+                  target="_blank"
+                  >Mario's Tennis (1995)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Tennis_(Nintendo_64)"
+                  target="_blank"
+                  >Mario Tennis (2000)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Power_Tennis"
+                  target="_blank"
+                  >Mario Power Tennis (2004)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Tennis:_Power_Tour"
+                  target="_blank"
+                  >Mario Tennis: Power Tour (2005)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Tennis_Open"
+                  target="_blank"
+                  >Mario Tennis Open (2012)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Tennis:_Ultra_Smash"
+                  target="_blank"
+                  >Mario Tennis: Ultra Smash (2015)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Tennis_Aces"
+                  target="_blank"
+                  >Mario Tennis Aces (2018)</a
+                >
+              </li>
+            </ul>
+            <ul class="games-lists">
+              <h3 class="games-lists-title">Mario Golf</h3>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Golf_(video_game)"
+                  target="_blank"
+                  >Mario Golf (1999)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Golf:_Toadstool_Tour"
+                  target="_blank"
+                  >Mario Golf: Toadstool Tour (2003)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Golf:_Advance_Tour"
+                  target="_blank"
+                  >Mario Golf: Advance Tour (2004)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Golf:_World_Tour"
+                  target="_blank"
+                  >Mario Golf: World Tour (2014)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Golf:_Super_Rush"
+                  target="_blank"
+                  >Mario Golf: Super Rush (2021)</a
+                >
+              </li>
+            </ul>
+            <ul class="games-lists">
+              <h3 class="games-lists-title">Other Sports Games</h3>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Superstar_Baseball"
+                  target="_blank"
+                  >Mario Superstar Baseball (2005)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Strikers_Charged"
+                  target="_blank"
+                  >Mario Strikers Charged (2007)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Sports_Mix"
+                  target="_blank"
+                  >Mario Sports Mix (2010)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_%26_Sonic_at_the_Olympic_Games"
+                  target="_blank"
+                  >Mario & Sonic at the Olympic Games series (2007-2020)</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="games-lists-wrapper">
+            <ul class="games-lists">
+              <h3 class="games-lists-title">RPG Series</h3>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Mario_RPG"
+                  target="_blank"
+                  >Super Mario RPG: Legend of the Seven Stars (1996)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Paper_Mario"
+                  target="_blank"
+                  >Paper Mario (2000)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Paper_Mario:_The_Thousand-Year_Door"
+                  target="_blank"
+                  >Paper Mario: The Thousand-Year Door (2004)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Paper_Mario"
+                  target="_blank"
+                  >Super Paper Mario (2007)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Paper_Mario:_Sticker_Star"
+                  target="_blank"
+                  >Paper Mario: Sticker Star (2012)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Paper_Mario:_Color_Splash"
+                  target="_blank"
+                  >Paper Mario: Color Splash (2016)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Paper_Mario:_The_Origami_King"
+                  target="_blank"
+                  >Paper Mario: The Origami King (2020)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_%26_Luigi:_Superstar_Saga"
+                  target="_blank"
+                  >Mario & Luigi: Superstar Saga (2003)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_%26_Luigi:_Partners_in_Time"
+                  target="_blank"
+                  >Mario & Luigi: Partners in Time (2005)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_%26_Luigi:_Bowser%27s_Inside_Story"
+                  target="_blank"
+                  >Mario & Luigi: Bowser's Inside Story (2009)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_%26_Luigi:_Dream_Team"
+                  target="_blank"
+                  >Mario & Luigi: Dream Team (2013)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_%26_Luigi:_Paper_Jam"
+                  target="_blank"
+                  >Mario & Luigi: Paper Jam (2015)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_%26_Luigi:_Bowser%27s_Inside_Story_%2B_Bowser_Jr.%27s_Journey"
+                  target="_blank"
+                  >Mario & Luigi: Bowser's Inside Story + Bowser Jr.'s Journey
+                  (2018)</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="games-lists-wrapper">
+            <ul class="games-lists">
+              <h3 class="games-lists-title">Other Notable Appearances</h3>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Dr._Mario"
+                  target="_blank"
+                  >Dr. Mario series (1990-2021)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_Paint"
+                  target="_blank"
+                  >Mario Paint (1992)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mario_vs._Donkey_Kong"
+                  target="_blank"
+                  >Mario vs. Donkey Kong series (2004-2015)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Luigi%27s_Mansion"
+                  target="_blank"
+                  >Luigi's Mansion series (2001-2019)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Super_Smash_Bros."
+                  target="_blank"
+                  >Super Smash Bros. series (1999-2018)</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Link to an external website where the user can learn more about your character -->
+        <footer class="footer" id="resources">
+          <p class="footer-text copyright">
+            &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            |
+            <a href="https://lucanovello.com/" target="_blank">Luca Novello</a>
+            | WEB222NBB | Assignment 2
+          </p>
+          <svg class="footer-shape" viewBox="0 0 435 25">
+            <path
+              d="M435,25C369.274,9,295.479,0,217.5,0C139.521,0,65.725,9,0,25H435z"
+            />
+          </svg>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
