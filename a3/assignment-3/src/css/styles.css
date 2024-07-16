@@ -1,0 +1,170 @@
+/* FONTS **************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* font-family: "Poppins", sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
+/* font-family: "Limelight", sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+/* font-family: "Poiret One", sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap");
+/* font-family: "Alegreya", serif; */
+
+/* VARIABLES **************************************************/
+:root {
+  --color-bg1: hsl(281, 100%, 14%);
+  --color-bg2: hsl(210, 50%, 2%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Poppins", serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: white;
+  background: linear-gradient(to bottom, var(--color-bg1), var(--color-bg2));
+}
+
+.header-container {
+  width: 100%;
+  padding: 2vh 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  line-height: 1;
+  border-bottom: 1px dashed grey;
+}
+.header-title {
+  font-family: "Limelight", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-align: center;
+}
+.header-slogan {
+  font-size: 1.25rem;
+  font-weight: 200;
+  text-align: center;
+}
+.menu-container {
+  width: 100%;
+  height: max-content;
+  padding: 0 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dashed grey;
+}
+.menu-btn {
+  width: 100%;
+  height: 100%;
+  padding: 1vh;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: hsl(0, 0%, 85%);
+  background: none;
+  border: none;
+  border-left: 1px dashed grey;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.menu-btn:last-of-type {
+  border-right: 1px dashed grey;
+}
+
+.menu-btn:hover {
+  color: white;
+  animation: pulse 0.5s linear infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    background: hsla(0, 0%, 100%, 0.02);
+  }
+  100% {
+    background: hsla(0, 0%, 100%, 0.1);
+  }
+}
+
+.artist-container {
+  width: 100%;
+  padding: 0 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 3px solid red; */
+}
+.artist-title {
+  margin: 4vh 0;
+  align-self: flex-start;
+  font-family: "Limelight", sans-serif;
+  font-size: 2rem;
+  font-weight: 100;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: white;
+}
+.songs-table-container {
+  width: 100%;
+  font-family: "Limelight", sans-serif;
+  font-size: 1rem;
+  font-weight: 200;
+  border-spacing: 0;
+}
+
+.songs-table-head-cell {
+  padding: 1vh 0.5em;
+  font-family: "Limelight", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  /* background: hsla(0, 0%, 100%, 0.1); */
+  border-bottom: 1px solid white;
+}
+.songs-table-row {
+  background: none;
+  transition: 0.15s ease;
+}
+.songs-table-row:hover {
+  background: hsla(0, 0%, 100%, 0.05);
+}
+.songs-table-cell {
+  padding: 2vh 1em;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 200;
+  color: hsl(0, 0%, 70%);
+  border-bottom: 1px dotted hsla(0, 0%, 100%, 0.2);
+}
+.songs-table-cell-links {
+  width: 100%;
+  color: hsl(0, 0%, 70%);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+.songs-table-cell-links:hover {
+  text-decoration: underline;
+}
+
+.song-title {
+  width: 55%;
+}
+.song-year,
+.song-duration,
+.song-explicit {
+  width: 15%;
+}
