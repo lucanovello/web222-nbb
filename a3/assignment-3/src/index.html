@@ -14,31 +14,53 @@
     <!-- <link rel="stylesheet" href="./css/water.css" /> -->
   </head>
   <body>
-    <header class="header-container">
-      <!-- Change this to your App's info -->
-      <h1 class="header-title">DiscoTech</h1>
-      <p class="header-slogan">Your Digital Dancefloor</p>
-    </header>
-
-    <nav class="menu-container" id="menu">
-      <!-- Dynamically create your menu category buttons here -->
-    </nav>
-
-    <hr />
+    <div class="intro-screen" id="intro-screen"></div>
+    <section class="nav-container" id="nav">
+      <header class="header-container">
+        <!-- Change this to your App's info -->
+        <h1 class="header-title">DiscoTech</h1>
+        <p class="header-slogan">Your Digital Dancefloor</p>
+      </header>
+      <div class="menu-wrapper">
+        <div>
+          <h3 class="menu-title">Artists</h3>
+          <nav class="menu-artists-wrapper" id="menu">
+            <!-- Dynamically create your menu category buttons here -->
+          </nav>
+        </div>
+        <footer class="footer-wrapper">
+          <p class="footer-text">
+            &copy;<span id="footer-copyright"></span> |
+            <span
+              ><a
+                class="footer-name"
+                href="https://matrix.senecapolytechnic.ca/~gnovello/"
+                target="_blank"
+                >Luca Novello</a
+              ></span
+            >
+            | WEB222NBB | Assignment 3
+          </p>
+        </footer>
+      </div>
+    </section>
 
     <main class="artist-container">
-      <h2 class="artist-title" id="selected-artist">
-        <!-- Dynamically update the selected category title -->
-      </h2>
+      <img class="artist-image" id="artist-image" />
+      <section class="artist-song-wrapper">
+        <h2 class="artist-title" id="selected-artist">
+          <!-- Dynamically update the selected category title -->
+        </h2>
 
-      <table class="songs-table-container">
-        <thead class="songs-table-head-wrapper" id="songs-head">
-          <!-- Statically create the headings for your table here -->
-        </thead>
-        <tbody class="songs-table-body-wrapper" id="songs">
-          <!-- Dynamically create your product rows here -->
-        </tbody>
-      </table>
+        <table class="songs-table-container">
+          <thead class="songs-table-head-wrapper" id="songs-head">
+            <!-- Statically create the headings for your table here -->
+          </thead>
+          <tbody class="songs-table-body-wrapper" id="songs">
+            <!-- Dynamically create your product rows here -->
+          </tbody>
+        </table>
+      </section>
     </main>
 
     <!-- JavaScript Data Files -->
