@@ -3,9 +3,8 @@
 /* font-family: "Poppins", sans-serif; */
 @import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
 /* font-family: "Limelight", sans-serif; */
-@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
-/* font-family: "Poiret One", sans-serif; */
-
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/* font-family: "Roboto", sans-serif; */
 
 /* VARIABLES ------------------------------------------------------------------------- */
 :root {
@@ -14,6 +13,7 @@
   --color-bg: #060606;
   --color-card: #242424;
   --color-text: hsl(0, 0%, 85%);
+  --color-text2: hsl(0, 0%, 65%);
   --border-rad-main: 10px;
   --gap: 10px;
   --card-img-height: 70%;
@@ -145,8 +145,8 @@ a {
   font-weight: 200;
   letter-spacing: -0.02em;
   text-align: left;
+  background: transparent;
   color: var(--color-text);
-  background: none;
   border: none;
   cursor: pointer;
   transition: 0.3s ease;
@@ -154,12 +154,13 @@ a {
 
 .menu-btn:hover {
   color: white;
-  animation: pulse 0.5s linear infinite alternate;
+  background: hsla(0, 0%, 100%, 0.01);
+  animation: menu-pulse 1s linear infinite alternate;
 }
 
-@keyframes pulse {
+@keyframes menu-pulse {
   0% {
-    background: hsla(0, 0%, 100%, 0.02);
+    background: hsla(0, 0%, 100%, 0.01);
   }
   100% {
     background: hsla(0, 0%, 100%, 0.1);
@@ -184,14 +185,14 @@ a {
   cursor: help;
   color: hsl(0, 0%, 40%);
   transition: 0.3s ease;
-  animation: pulse 0.7s linear infinite alternate;
+  animation: footer-pulse 0.7s linear infinite alternate;
 }
 .footer-name:hover {
   animation: none;
   color: white;
 }
 
-@keyframes pulse {
+@keyframes footer-pulse {
   0% {
     color: hsl(0, 0%, 40%);
   }
@@ -217,14 +218,13 @@ a {
 
 .artist-image {
   width: 100%;
-  height: 45vh;
+  height: 35vh;
   overflow: hidden;
   object-fit: cover;
   object-position: 0% 0%;
-  filter: saturate(0) sepia(0.8) brightness(0.7);
   border-radius: var(--border-rad-main) var(--border-rad-main) 0 0;
   box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.3);
-  filter: saturate(0.1) sepia(0.7) brightness(0.7);
+  filter: saturate(0.4) sepia(0.4) brightness(0.7);
 }
 
 .artist-image-hide {
@@ -272,77 +272,108 @@ a {
   gap: 10px;
 }
 .card {
-  width: 25%;
+  width: 20%;
   max-width: 300px;
   min-width: 220px;
-  aspect-ratio: 1;
-  padding: 3px;
-  background: var(--color-card);
-  border-radius: 10px;
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0.8em;
   overflow: hidden;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  background: var(--color-card);
 }
 
 .card-image {
-  object-fit: cover;
   width: 100%;
-  height: var(--card-img-height);
-  border-radius: 10px 10px 0 0;
-  filter: saturate(0.1) sepia(0.5);
+  /* height: var(--card-img-height); */
+  aspect-ratio: 1;
+  border-radius: 10px;
+  filter: saturate(0.7);
+  object-fit: cover;
   transition: 0.2s ease;
 }
 .card:hover .card-image {
-  filter: saturate(0.7) sepia(0);
+  filter: saturate(1);
 }
 .card-text-wrapper {
   width: 100%;
-  height: calc(100% - var(--card-img-height));
-  padding: 8px 5px;
+  padding: 1em;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
 }
 .card-text-title {
   width: 100%;
-  height: 50%;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
   line-height: 1.15;
   color: var(--color-text);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   transition: 0.2s ease;
 }
 .card-text-title:hover {
   text-decoration: underline;
 }
-
-.card-time-wrapper {
-  width: 100%;
-  height: 50%;
-  font-size: 0.7rem;
-  font-weight: 200;
-  line-height: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--color-text);
-  transition: 0.2s ease;
-}
-.card:hover .card-text-title,
-.card:hover .card-time-wrapper {
+.card:hover .card-text-title {
   color: white;
 }
-
-.card-text-date {
+.card-time-wrapper {
   width: 100%;
-  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--color-text2);
+  white-space: nowrap;
+  transition: 0.2s ease;
 }
-.card-text-duration {
+.card:hover .card-time-wrapper {
+  color: var(--color-text);
+}
+
+.card-text-date,
+.card-text-duration::before {
+  margin-right: 0.5em;
+}
+
+.card-text-duration::before {
+  content: "●";
+}
+.card-text-explicit-wrapper {
   width: 100%;
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.card-text-explicit {
+  width: 1.5em;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1;
+  border-radius: 0.2em;
+  justify-self: flex-end;
+  background: hsl(0, 0%, 15%);
+  color: var(--color-main2);
+  transition: 0.2s ease;
+}
+.card:hover .card-text-explicit {
+  background: hsl(0, 0%, 50%);
 }

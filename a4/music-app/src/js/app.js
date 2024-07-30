@@ -83,17 +83,28 @@ document.addEventListener("DOMContentLoaded", function () {
     // Create a <span> for card song duration
     const duration = document.createElement("span");
     duration.classList.add("card-text-duration");
-    duration.textContent = song.released;
     // Convert the duration in seconds to a value in mintues:seconds
-    duration.textContent = `${Math.floor(song.duration / 60)}:${song.duration % 60 < 10 ? "0" : ""}${song.duration % 60}`;
+    duration.textContent = `${Math.floor(song.duration / 60)}:${song.duration % 60 < 10 ? "0" : ""}${song.duration % 60} min`;
+
     // Append all elements to parents
     dateWrapper.appendChild(date);
     dateWrapper.appendChild(duration);
+    // Create a <span> for card song explicit lyrics if true
+    if (song.explicitLyrics) {
+      const explicitWrapper = document.createElement("span");
+      explicitWrapper.classList.add("card-text-explicit-wrapper");
+      const explicit = document.createElement("p");
+      explicit.classList.add("card-text-explicit");
+      explicit.textContent = "E";
+      explicitWrapper.appendChild(explicit);
+      dateWrapper.appendChild(explicitWrapper);
+    }
     textContainer.appendChild(title);
     textContainer.appendChild(dateWrapper);
     card.appendChild(songImg);
     card.appendChild(textContainer);
     songsContainer.appendChild(card);
+
     // Return the card"s <div> element to the caller
     return card;
   }

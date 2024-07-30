@@ -13,9 +13,8 @@ window.songs = [
     duration: 238,
     mediaUrl: "https://www.youtube.com/watch?v=I_izvAbhExY",
     explicitLyrics: false,
-    imageUrl:
-      "https://static01.nyt.com/images/2020/12/14/arts/14-BEEGEES-DOC-1/merlin_180811818_23168181-418e-4088-9c16-0f4e2f2b2324-superJumbo.jpg?quality=75&auto=webp",
-    imagePosition: "50% 40%"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/3/36/Bee_Gees_Stayin_Alive.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-002",
@@ -25,9 +24,8 @@ window.songs = [
     duration: 193,
     mediaUrl: "https://www.youtube.com/watch?v=SkypZuY6ZvA",
     explicitLyrics: false,
-    imageUrl:
-      "https://static01.nyt.com/images/2020/12/14/arts/14-BEEGEES-DOC-1/merlin_180811818_23168181-418e-4088-9c16-0f4e2f2b2324-superJumbo.jpg?quality=75&auto=webp",
-    imagePosition: "50% 40%"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/a/a9/Night_fever_uk_single_bee_gees.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-003",
@@ -37,9 +35,8 @@ window.songs = [
     duration: 259,
     mediaUrl: "https://www.youtube.com/watch?v=1sqE6P3XyiQ",
     explicitLyrics: false,
-    imageUrl:
-      "https://static01.nyt.com/images/2020/12/14/arts/14-BEEGEES-DOC-1/merlin_180811818_23168181-418e-4088-9c16-0f4e2f2b2324-superJumbo.jpg?quality=75&auto=webp",
-    imagePosition: "50% 40%"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/0/0b/You_Should_Be_Dancing_1.JPG",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-004",
@@ -49,9 +46,8 @@ window.songs = [
     duration: 276,
     mediaUrl: "https://www.youtube.com/watch?v=1IdEhvuNxV8",
     explicitLyrics: false,
-    imageUrl:
-      "https://www.udiscovermusic.com/wp-content/uploads/2022/12/Donna-Summer-GettyImages-548231291-1000x600.jpg",
-    imagePosition: "0% 15%"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/1/14/Hot_Stuff_%28Italy%29.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-005",
@@ -61,9 +57,8 @@ window.songs = [
     duration: 252,
     mediaUrl: "https://www.youtube.com/watch?v=0F_CkskgUIA",
     explicitLyrics: true,
-    imageUrl:
-      "https://www.udiscovermusic.com/wp-content/uploads/2022/12/Donna-Summer-GettyImages-548231291-1000x600.jpg",
-    imagePosition: "0% 15%"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/b/b7/Bad_Girls_LP.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-006",
@@ -74,8 +69,8 @@ window.songs = [
     mediaUrl: "https://www.youtube.com/watch?v=Nm-ISatLDG0",
     explicitLyrics: false,
     imageUrl:
-      "https://www.udiscovermusic.com/wp-content/uploads/2022/12/Donna-Summer-GettyImages-548231291-1000x600.jpg",
-    imagePosition: "0% 15%"
+      "https://upload.wikimedia.org/wikipedia/en/8/83/Donna_Summer-I_Feel_Love_%281995_Remix%29.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-007",
@@ -85,9 +80,8 @@ window.songs = [
     duration: 212,
     mediaUrl: "https://www.youtube.com/watch?v=yupPvZF6oBw",
     explicitLyrics: false,
-    imageUrl:
-      "https://m.media-amazon.com/images/M/MV5BNzU1ODYwOTUtYmEwZS00ZWMyLTgyZjctZGZjZmQzMWNhYWMyXkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_.jpg",
-    imagePosition: "0% 12%"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/f/fd/ThatsTheWayILikeIt.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-008",
@@ -98,8 +92,8 @@ window.songs = [
     mediaUrl: "https://www.youtube.com/watch?v=BXIBEW5MLuU",
     explicitLyrics: false,
     imageUrl:
-      "https://m.media-amazon.com/images/M/MV5BNzU1ODYwOTUtYmEwZS00ZWMyLTgyZjctZGZjZmQzMWNhYWMyXkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_.jpg",
-    imagePosition: "0% 12%"
+      "https://upload.wikimedia.org/wikipedia/en/a/a8/KCAndTheSunshineBandGetDownTonightFrench7InchSingleCover.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-009",
@@ -110,8 +104,8 @@ window.songs = [
     mediaUrl: "https://www.youtube.com/watch?v=Ia0zeuZMJbo",
     explicitLyrics: false,
     imageUrl:
-      "https://m.media-amazon.com/images/M/MV5BNzU1ODYwOTUtYmEwZS00ZWMyLTgyZjctZGZjZmQzMWNhYWMyXkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_.jpg",
-    imagePosition: "0% 12%"
+      "https://upload.wikimedia.org/wikipedia/en/a/a1/Boogie_Shoes_-_KC_and_the_Sunshine_Band.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-010",
@@ -121,9 +115,8 @@ window.songs = [
     duration: 231,
     mediaUrl: "https://www.youtube.com/watch?v=xFrGuyw1V8s",
     explicitLyrics: false,
-    imageUrl:
-      "https://people.com/thmb/HHAwUeUtJN7vc2YMZ-X9FMHnV1o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x520:1001x522)/abba-2-7f1f4e6d1c1644da8f08c078bfd6c886.jpg",
-    imagePosition: "0% 15%"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/e/ef/ABBA_-_Dancing_Queen.png",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-011",
@@ -133,9 +126,8 @@ window.songs = [
     duration: 207,
     mediaUrl: "https://www.youtube.com/watch?v=unfzfe8f9NI",
     explicitLyrics: false,
-    imageUrl:
-      "https://people.com/thmb/HHAwUeUtJN7vc2YMZ-X9FMHnV1o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x520:1001x522)/abba-2-7f1f4e6d1c1644da8f08c078bfd6c886.jpg",
-    imagePosition: "0% 15%"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/4/48/Mamma_Mia_Intermezzo_No_1.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-012",
@@ -146,8 +138,8 @@ window.songs = [
     mediaUrl: "https://www.youtube.com/watch?v=XEjLoHdbVeE",
     explicitLyrics: false,
     imageUrl:
-      "https://people.com/thmb/HHAwUeUtJN7vc2YMZ-X9FMHnV1o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x520:1001x522)/abba-2-7f1f4e6d1c1644da8f08c078bfd6c886.jpg",
-    imagePosition: "0% 15%"
+      "https://upload.wikimedia.org/wikipedia/en/a/a5/ABBA_-_Gimme%21_Gimme%21_Gimme%21_%28A_Man_After_Midnight%29.png",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-013",
@@ -157,9 +149,8 @@ window.songs = [
     duration: 198,
     mediaUrl: "https://www.youtube.com/watch?v=6dYWe1c3OyU",
     explicitLyrics: false,
-    imageUrl:
-      "https://www.gloriagaynor.com/wp-content/themes/gloriagaynor2017/images/bg-home-performances.jpg",
-    imagePosition: "0% 0%"
+    imageUrl: "https://i.scdn.co/image/ab67616d0000b2738fe438c0dce2d985ba65197c",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-014",
@@ -169,9 +160,8 @@ window.songs = [
     duration: 189,
     mediaUrl: "https://www.youtube.com/watch?v=vQn4fFd8p-8",
     explicitLyrics: false,
-    imageUrl:
-      "https://www.gloriagaynor.com/wp-content/themes/gloriagaynor2017/images/bg-home-performances.jpg",
-    imagePosition: "0% 0%"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/2/2d/Glorianever.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-015",
@@ -182,40 +172,40 @@ window.songs = [
     mediaUrl: "https://www.youtube.com/watch?v=cbcFdxyV6I4",
     explicitLyrics: false,
     imageUrl:
-      "https://www.gloriagaynor.com/wp-content/themes/gloriagaynor2017/images/bg-home-performances.jpg",
-    imagePosition: "0% 0%"
+      "https://upload.wikimedia.org/wikipedia/en/f/f2/Reach_Out_I%27ll_Be_There_-_Gloria_Gaynor.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-016",
     artistId: "AID-006",
-    title: "Disco Inferno",
-    released: 1976,
-    duration: 311,
-    mediaUrl: "https://www.youtube.com/watch?v=cWqcgPmCbDQ",
+    title: "YMCA",
+    released: 1978,
+    duration: 241,
+    mediaUrl: "https://www.youtube.com/watch?v=CS9OO0S5w2k",
     explicitLyrics: false,
-    imageUrl: "https://ychef.files.bbci.co.uk/1280x720/p08mqhyl.jpg",
-    imagePosition: "0% 10%"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/4/4c/Cruisin1978.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-017",
     artistId: "AID-006",
-    title: "Hold Back the Night",
-    released: 1975,
-    duration: 198,
-    mediaUrl: "https://www.youtube.com/watch?v=OGKgR4jPlyM",
+    title: "In The Navy",
+    released: 1979,
+    duration: 235,
+    mediaUrl: "https://www.youtube.com/watch?v=nmGuy0jievs",
     explicitLyrics: false,
-    imageUrl: "https://ychef.files.bbci.co.uk/1280x720/p08mqhyl.jpg",
-    imagePosition: "0% 10%"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/c/c0/In_the_navy.jpg",
+    imagePosition: "50% 0%"
   },
   {
     songId: "SID-018",
     artistId: "AID-006",
-    title: "That's Where the Happy People Go",
-    released: 1976,
+    title: "Macho Man",
+    released: 1978,
     duration: 216,
-    mediaUrl: "https://www.youtube.com/watch?v=sgvQ9df5MPw",
+    mediaUrl: "https://www.youtube.com/watch?v=Zg3q6qW2aKo",
     explicitLyrics: false,
-    imageUrl: "https://ychef.files.bbci.co.uk/1280x720/p08mqhyl.jpg",
-    imagePosition: "0% 10%"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/9/96/Machoman1978.jpg",
+    imagePosition: "50% 0%"
   }
 ];
