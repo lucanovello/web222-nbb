@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB222 | Test 5 | Luca Novello</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header-container">
+      <h1 class="header-title">
+        WEB222NBB<span>|</span>Test 5<span>|</span>Luca Novello
+      </h1>
+    </header>
+    <form class="form-container" action="/search" method="POST">
+      <h2 class="form-title">Search Form</h2>
+      <!-- User Email -->
+      <div class="form-row">
+        <div class="form-input-wrapper">
+          <label class="form-label" for="user">Email:</label>
+          <input
+            class="form-input"
+            type="email"
+            id="user"
+            name="user"
+            placeholder="Please enter your email"
+            required
+            autofocus
+          />
+        </div>
+      </div>
+
+      <!-- Search Query -->
+      <div class="form-row">
+        <div class="form-input-wrapper">
+          <label class="form-label" for="query">Search Query:</label>
+          <input
+            class="form-input"
+            type="text"
+            id="query"
+            name="query"
+            placeholder="Please enter your search query"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Resource Type -->
+      <div class="form-row">
+        <div class="form-input-wrapper">
+          <label class="form-label" for="resource-type">Resource Type:</label>
+          <select
+            class="form-input"
+            id="resource-type"
+            name="resource-type"
+            required
+          >
+            <option value="book">Book</option>
+            <option value="ebook">eBook</option>
+            <option value="audiobook">Audiobook</option>
+            <option value="video">Video</option>
+          </select>
+        </div>
+
+        <!-- Show Only Available -->
+        <div class="form-input-wrapper">
+          <label class="form-label-checkbox" for="available"
+            >Show Only Available:</label
+          >
+          <div class="form-checkbox-wrapper">
+            <input
+              class="form-checkbox"
+              type="checkbox"
+              id="available"
+              name="available"
+            />
+          </div>
+        </div>
+
+        <!-- Maximum Number of Results -->
+        <div class="form-input-wrapper">
+          <label class="form-label" for="max-results">Number of Results:</label>
+          <input
+            class="form-input"
+            type="number"
+            id="max-results"
+            name="max-results"
+            min="1"
+            max="50"
+            value="25"
+            required
+          />
+        </div>
+      </div>
+      <!-- Search Button -->
+      <div class="form-input-wrapper">
+        <input
+          class="form-btn"
+          type="submit"
+          value="Search"
+          formtarget="_blank"
+        />
+      </div>
+    </form>
+    <footer class="footer-container">
+      <p class="footer-text">
+        &copy;2024<span>|</span
+        ><a
+          class="footer-name"
+          href="https://matrix.senecapolytechnic.ca/~gnovello/"
+          target="_blank"
+          >Luca Novello</a
+        ><span>|</span>WEB222NBB<span>|</span>Test 5
+      </p>
+    </footer>
+  </body>
+</html>
